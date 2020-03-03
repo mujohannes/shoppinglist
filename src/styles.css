@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-header {
+    background-color: indigo;
+    padding: 14px;
+}
+
+#shopping label {
+    color: white;
+    font-size: 1.2rem;
+}
+
+#shopping input {
+    border: 1px solid white;
+    background-color: lemonchiffon;
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    border-radius: 6px;
+}
+
+#shopping #add {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    min-width: 3rem;
+}
