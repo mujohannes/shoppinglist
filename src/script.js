@@ -9,10 +9,27 @@ function renderList() {
     // iterate over the list array
     list.forEach( (item) => {
         let name = item.name;
-        let listItem = `<li>${name}</li>`;
+        let listItem = `
+        <li id="${item.id}" data-status="${item.status}">
+        ${name}
+        </li>`;
         listElement.insertAdjacentHTML('beforeend', listItem);
     } );
 }
+function sortList() {
+    list.sort( (item1,item2) => {
+        return item2.id - item1.id;
+    } );
+}
+
+function changeStatus( id ) {
+    list.forEach( (item) => {
+        if ( item.id == id ) {
+            item.status = true;
+        }
+    } );
+}
+
 // wait for load event
 window.addEventListener('load', () => {
     // button reference
@@ -36,7 +53,14 @@ window.addEventListener('load', () => {
         // add item to list array
         list.push( item );
         // console.log( list );
+        sortList();
         renderList();
         form.reset();
-    } )
+    } );
+    const listView = document.querySelector('#list');
+    listView.addEventListener('click', (event) => {
+        console.log(event.target.id);
+        changeStatus( event.target.id );
+        renderList();
+    } );
 } );
